@@ -57,22 +57,27 @@ public class TestProfiles {
 				double[] numerical = new double[N];
 				double[] analytical = new double[N];
 
-				for (int i = 0; i < N; ++i) {
-					double s0 = 0.0;
-					double s1 = testRange[i];
-
-					analytical[i] = p.integral(s0, s1);
-
-					numerical[i] = Cubature.integrate(atanIntegrand, "eval", new double[] { s0 }, new double[] { s1 },
-							intTol, 0.0, Cubature.Error.INDIVIDUAL, 100000, p)[0][0];
-
-					assertEquals(analytical[i], numerical[i], checkTol);
-
-					double relDev = (analytical[i] - numerical[i]) / numerical[i];
-
-					System.out.println(String.format(Locale.ENGLISH,
-							"integral from %.3e to %3e : analytical = %.3e ; numerical = %.3e ; rel. dev = %.3e", s0,
-							s1, analytical[i], numerical[i], relDev));
+				// loop over lower boundary; does not range up to 1
+				for (int i = 0; i < N-1; ++i) {
+					double s0 = testRange[i];
+					
+					// loop over upper boundary; has to be greater than or equal to lower boundary
+					for (int j = i+1; j < N; ++j) {
+						double s1 = testRange[j];
+	
+						analytical[i] = p.integral(s0, s1);
+	
+						numerical[i] = Cubature.integrate(atanIntegrand, "eval", new double[] { s0 }, new double[] { s1 },
+								intTol, 0.0, Cubature.Error.INDIVIDUAL, 100000, p)[0][0];
+	
+						assertEquals(analytical[i], numerical[i], checkTol);
+	
+						double relDev = (analytical[i] - numerical[i]) / numerical[i];
+	
+						System.out.println(String.format(Locale.ENGLISH,
+								"integral from %.3e to %3e : analytical = %.3e ; numerical = %.3e ; rel. dev = %.3e", s0,
+								s1, analytical[i], numerical[i], relDev));
+					}
 				}
 			}
 		}
