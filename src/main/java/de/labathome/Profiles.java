@@ -39,7 +39,7 @@ public class Profiles {
 		
 		/**
 		 * Analytical integral of the profile function.
-		 * Tested for x0 < x1 where (x0,x1) \in [0,1]^2
+		 * Tested for x0 &lt; x1 where (x0,x1) \in [0,1]^2
 		 * @param x0 lower integration boundary
 		 * @param x1 upper integration boundary
 		 * @return \int_x0^x1 f(x) dx
