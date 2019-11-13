@@ -63,6 +63,12 @@
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.labathome</groupId>
+			<artifactId>Cubature</artifactId>
+			<version>1.0.4</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<distributionManagement>
