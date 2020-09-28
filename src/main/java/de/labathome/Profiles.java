@@ -1,10 +1,14 @@
 package de.labathome;
 
+/**
+ * This class presents bundles functions occuring for e.g. radial profiles of plasma parameters in a nuclear fusion plasma
+ * or any other case where some quantitity is representable by a continous, analytical profile over a domain [0,1].
+ * 
+ * @author Jonathan Schilling (jonathan.schilling@mail.de)
+ */
 public class Profiles {
-	/**
-	 * A parameterized profile which two shaping parameters.
-	 * @author Jonathan Schilling (jonathan.schilling@ipp.mpg.de)
-	 */
+	
+	/** A parameterized profile which two shaping parameters. */
 	public static class AtanProfile {
 		
 		private double am0, a, b, p2, p3;

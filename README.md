@@ -11,6 +11,6 @@ and their minimum, which is typically 0, at `x=1`.
 <dependency>
 	<groupId>de.labathome</groupId>
 	<artifactId>Profiles</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 </dependency>
 ```
